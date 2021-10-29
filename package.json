@@ -1,0 +1,24 @@
+{
+  "name": "cse-5234-payment-microservice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Frank522/cse-5234-payment-microservice.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Frank522/cse-5234-payment-microservice/issues"
+  },
+  "homepage": "https://github.com/Frank522/cse-5234-payment-microservice#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  }
+}
