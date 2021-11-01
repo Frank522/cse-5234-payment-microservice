@@ -21,7 +21,7 @@ app.use(
     origin: "*",
   })
 );
-async function insertPayment(request, response) {
+async function insertPaymentinfo(request, response) {
   let payment = request.body.payment;
   console.log(payment)
   client.query(
@@ -60,7 +60,9 @@ app
 .route("/PaymentMicroservice/Payment")
 .post(
   jsonParser,
-  insertPayment
+  function(req, res) {
+    insertPaymentinfo(req, res);
+  }
 )
 
 
