@@ -1,17 +1,21 @@
 var express = require("express");
 const http = require("https");
 var app = express();
-const port = process.env.PORT || 3000;
+
 const { Client } = require("pg");
+
+const port = process.env.PORT || 3000;
+
+var bodyParser = require("body-parser");
+var jsonParser = bodyParser.json();
+const cors = require("cors");
+
 const client = new Client({
   connectionString: process.env.DATABASE_URL,
   ssl: {
     rejectUnauthorized: false,
   },
 });
-var bodyParser = require("body-parser");
-var jsonParser = bodyParser.json();
-const cors = require("cors");
 app.use(
   cors({
     origin: "*",
@@ -55,10 +59,7 @@ app
 .route("/PaymentMicroservice/Payment")
 .post(
   jsonParser,
-  function(req, res) {
-    console.log(req.body.product);
-    insertPayment(req, res);
-  }
+  insertPayment(req, res)
 )
 
 
