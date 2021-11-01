@@ -59,7 +59,7 @@ app
 .route("/PaymentMicroservice/Payment")
 .post(
   jsonParser,
-  insertPayment(req, res)
+  insertPayment
 )
 
 
