@@ -4,7 +4,7 @@ var app = express();
 
 const { Client } = require("pg");
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3003;
 
 var bodyParser = require("body-parser");
 var jsonParser = bodyParser.json();
@@ -23,6 +23,7 @@ app.use(
 );
 async function insertPayment(request, response) {
   let payment = request.body.payment;
+  console.log(payment)
   client.query(
     'INSERT INTO paymentinfo (id,creditcardnumber,expirationdate,cvvcode) VALUES ($1, $2, $3, $4);',
     [
