@@ -21,11 +21,17 @@ app.use(
     origin: "*",
   })
 );
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header('Access-Control-Allow-Methods', 'DELETE, PUT, GET, POST');
+  next();
+});
 client.connect();
 async function insertPaymentinfo(request, response) {
 
   let payment = request.body.payment;
-  console.log(payment)
+  console.log(payment);
   client.query(
     'INSERT INTO paymentinfo (id,creditcardnumber,expirationdate,cvvcode) VALUES ($1, $2, $3, $4);',
     [
@@ -63,6 +69,7 @@ app
 .post(
   jsonParser,
   function(req, res) {
+    console("Run insertpaymentinfo Function");
     insertPaymentinfo(req, res);
   }
 )
