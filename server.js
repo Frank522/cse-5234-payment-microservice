@@ -21,8 +21,9 @@ app.use(
     origin: "*",
   })
 );
+client.connect();
 async function insertPaymentinfo(request, response) {
-  client.connect();
+
   let payment = request.body.payment;
   console.log(payment)
   client.query(
