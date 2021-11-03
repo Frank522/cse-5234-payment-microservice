@@ -43,7 +43,9 @@ function getData() {
     })
     .then(function (response) {
       //handle success
-      console.log(response);
+      console.error(response);
+      console.error(response.status);  // ***
+      console.error(response.headers); // ***
     })
     .catch(function (response) {
       //handle error
