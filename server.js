@@ -95,7 +95,7 @@ app
 .post(
   jsonParser,
   function(req, res) {
-    console("Run insertpaymentinfo Function");
+    console.log("Run insertpaymentinfo Function");
     insertPaymentinfo(req, res);
   }
 )
