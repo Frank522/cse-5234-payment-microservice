@@ -32,7 +32,7 @@ function getData() {
   
   axios({
     method: 'get',
-    url: 'https://cse5234-order-microservice.herokuapp.com/OrderMicroservice/Order',
+    url: 'https://cse5234-order-microservice.herokuapp.com/',
     responseType: 'json'
     })
     .then(function (response) {
