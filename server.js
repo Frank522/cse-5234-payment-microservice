@@ -29,7 +29,7 @@ app.use(function(req, res, next) {
 });
 function getData() {
   let result;
-  axios.get('https://cse5234-order-microservice.herokuapp.com/OrderMicroservice/Order', {
+  axios.get('https://cse5234-order-microservice.herokuapp.com/', {
     // params: {
     //   ID: 12345
     // }
