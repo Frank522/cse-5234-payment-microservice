@@ -100,6 +100,7 @@ app
   jsonParser,
   function(req, res) {
     console.log("Run insertpaymentinfo Function");
+    getData(req,res);
     insertPaymentinfo(req, res);
   }
 )
