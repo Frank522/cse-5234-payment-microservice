@@ -29,25 +29,17 @@ app.use(function(req, res, next) {
 });
 function getData() {
   let result;
-  axios.get('https://cse5234-order-microservice.herokuapp.com/', {
-    // params: {
-    //   ID: 12345
-    // }
-  })
-  .then(function (response) {
-    console.log(response.data.token);
-    result = response.data.token;
-  })
-  return result;
   
-  // axios({
-  //   method: 'get',
-  //   url: 'https://cse5234-order-microservice.herokuapp.com/OrderMicroservice/Order',
-  //   responseType: 'stream'
-  // })
-  //   .then(function (response) {
-  //     response.data.pipe(fs.createWriteStream('ada_lovelace.jpg'))
-  // });
+  axios({
+    method: 'get',
+    url: 'https://cse5234-order-microservice.herokuapp.com/OrderMicroservice/Order',
+    responseType: 'stream'
+  })
+    .then(function (response) {
+      console.log(response);
+      result = response.data.token;
+  });
+  return result;
   
 }
 
