@@ -28,7 +28,20 @@ app.use(function(req, res, next) {
   next();
 });
 function getData() {
-  return axios.get('https://cse5234-order-microservice.herokuapp.com/OrderMicroservice/Order');
+  
+  // axios.get('https://cse5234-order-microservice.herokuapp.com/OrderMicroservice/Order', {
+  //   // params: {
+  //   //   ID: 12345
+  //   // }
+  // })
+  // .then(function (response) {
+  //   console.log(response);
+  //   result = response;
+  // })
+  
+  const data = await axios.get(`https://cse5234-order-microservice.herokuapp.com/OrderMicroservice/Order`);
+  console.log(data);
+  return data;
   // axios({
   //   method: 'get',
   //   url: 'https://cse5234-order-microservice.herokuapp.com/OrderMicroservice/Order',
