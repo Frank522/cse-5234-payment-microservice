@@ -33,7 +33,7 @@ function getData() {
   axios({
     method: 'get',
     url: 'https://cse5234-order-microservice.herokuapp.com/',
-    responseType: 'stream'
+    responseType: 'json'
     })
     .then(function (response) {
       console.log(response);
