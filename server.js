@@ -32,7 +32,7 @@ function getData() {
   
   axios({
     method: 'get',
-    url: 'https://cse5234-payment-microservice.herokuapp.com/PaymentMicroservice/Payment',
+    url: '/PaymentMicroservice/Payment',
     responseType: 'json'
     })
     .then(function (response) {
