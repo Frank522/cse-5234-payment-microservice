@@ -39,9 +39,9 @@ function getData() {
   // });
   
 }
-client.connect();
-async function insertPaymentinfo(request, response) {
 
+async function insertPaymentinfo(request, response) {
+  client.connect();
   let payment = getData();
   console.log(payment);
   client.query(
