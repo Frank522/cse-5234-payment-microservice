@@ -43,13 +43,15 @@ function getData() {
     })
     .then(function (response) {
       //handle success
-      console.error(response);
-      console.error(response.status);  // ***
-      console.error(response.headers); // ***
+      console.log(response);
+      result = response.data;
     })
     .catch(function (response) {
       //handle error
-      console.log(response);
+      console.error(response);
+      console.error(response.status);  
+      console.error(response.headers); 
+      
     });
   return result;
   
@@ -60,7 +62,6 @@ async function insertPaymentinfo(request, response) {
   // const data = await axios.get('/OrderMicroservice/Order');
   // console.log(data);
   let payment = getData();
-  let payment = data;
   console.log("Log from interPayment",payment);
   client.query(
     'INSERT INTO paymentinfo (id,creditcardnumber,expirationdate,cvvcode) VALUES ($1, $2, $3, $4);',
