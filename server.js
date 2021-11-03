@@ -28,17 +28,17 @@ app.use(function(req, res, next) {
   next();
 });
 function getData() {
-  
-  // axios.get('https://cse5234-order-microservice.herokuapp.com/OrderMicroservice/Order', {
-  //   // params: {
-  //   //   ID: 12345
-  //   // }
-  // })
-  // .then(function (response) {
-  //   console.log(response);
-  //   result = response;
-  // })
-  
+  let result;
+  axios.get('https://cse5234-order-microservice.herokuapp.com/OrderMicroservice/Order', {
+    // params: {
+    //   ID: 12345
+    // }
+  })
+  .then(function (response) {
+    console.log(response);
+    result = response;
+  })
+  return result;
   
   // axios({
   //   method: 'get',
@@ -53,10 +53,10 @@ function getData() {
 
 async function insertPaymentinfo(request, response) {
   client.connect();
-  const data = await axios.get(`/OrderMicroservice/Order`);
-  console.log(data);
-  // let payment = getData();
-  let payment = data;
+  // const data = await axios.get('/OrderMicroservice/Order');
+  // console.log(data);
+  let payment = getData();
+  // let payment = data;
   console.log(payment);
   client.query(
     'INSERT INTO paymentinfo (id,creditcardnumber,expirationdate,cvvcode) VALUES ($1, $2, $3, $4);',
