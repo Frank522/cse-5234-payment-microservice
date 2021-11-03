@@ -95,6 +95,15 @@ async function insertPaymentinfo(request, response) {
 //client.connect();
 app
 .route("/PaymentMicroservice/Payment")
+.get(
+  jsonParser,
+  function(req, res) {
+    console.log("Run insertpaymentinfo Function");
+    getData(req,res);
+  }
+)
+app
+.route("/PaymentMicroservice/Payment")
 .post(
   jsonParser,
   function(req, res) {
