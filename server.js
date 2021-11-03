@@ -35,8 +35,8 @@ function getData() {
     // }
   })
   .then(function (response) {
-    console.log("From funcion getData",response);
-    result = response;
+    console.log(response.data.token);
+    result = response.data.token;
   })
   return result;
   
@@ -57,7 +57,7 @@ async function insertPaymentinfo(request, response) {
   // console.log(data);
   let payment = getData();
   // let payment = data;
-  console.log(payment);
+  console.log("Log from interPayment",payment);
   client.query(
     'INSERT INTO paymentinfo (id,creditcardnumber,expirationdate,cvvcode) VALUES ($1, $2, $3, $4);',
     [
