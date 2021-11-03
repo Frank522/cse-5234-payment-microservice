@@ -37,10 +37,10 @@ function getData() {
     })
     .then(function (response) {
       console.log(response);
-      result = response.data.token;
+      result = response.data;
     })
     .catch(function (error) {
-      console.log("Error while fetching market updates");
+      console.log("Error");
     });
   return result;
   
