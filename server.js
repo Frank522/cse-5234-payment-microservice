@@ -27,10 +27,13 @@ app.use(function(req, res, next) {
   res.header('Access-Control-Allow-Methods', 'DELETE, PUT, GET, POST');
   next();
 });
+function getData() {
+  return axios.get('/PaymentMicroservice/Payment');
+}
 client.connect();
 async function insertPaymentinfo(request, response) {
 
-  let payment = request.body.payment;
+  let payment = getData();
   console.log(payment);
   client.query(
     'INSERT INTO paymentinfo (id,creditcardnumber,expirationdate,cvvcode) VALUES ($1, $2, $3, $4);',
