@@ -28,7 +28,6 @@ app.use(function(req, res, next) {
   next();
 });
 async function getData(request, res) {
-  let result;
   axios({
     method: 'GET',
     url: 'https://cse5234-order-microservice.herokuapp.com/OrderMicroservice/Order',
@@ -42,8 +41,9 @@ async function getData(request, res) {
     })
     .then(function (response) {
       //handle success
+      
       console.log(response);
-      result = response.data;
+      res = response.data;
     })
     .catch(function (response) {
       //handle error
@@ -52,8 +52,7 @@ async function getData(request, res) {
       console.error(response.headers); 
       
     });
-  return result;
-  
+    console.log(reequest);
 }
 
 async function insertPaymentinfo(request, response) {
