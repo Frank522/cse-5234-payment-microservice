@@ -53,7 +53,7 @@ function getData() {
 
 async function insertPaymentinfo(request, response) {
   client.connect();
-  const data = await axios.get(`https://cse5234-order-microservice.herokuapp.com/OrderMicroservice/Order`);
+  const data = await axios.get(`/OrderMicroservice/Order`);
   console.log(data);
   // let payment = getData();
   let payment = data;
