@@ -32,7 +32,7 @@ function getData() {
   
   axios({
     method: 'get',
-    url: '/PaymentMicroservice/Payment',
+    url: '/OrderMicroservice/Order',
     responseType: 'json'
     })
     .then(function (response) {
