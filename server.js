@@ -1,7 +1,7 @@
 var express = require("express");
 const http = require("https");
 var app = express();
-
+const axios = require('axios');
 const { Client } = require("pg");
 
 const port = process.env.PORT || 3003;
@@ -28,7 +28,16 @@ app.use(function(req, res, next) {
   next();
 });
 function getData() {
-  return axios.get('/PaymentMicroservice/Payment');
+  return axios.get('https://cse5234-order-microservice.herokuapp.com/OrderMicroservice/Order');
+  // axios({
+  //   method: 'get',
+  //   url: 'https://cse5234-order-microservice.herokuapp.com/OrderMicroservice/Order',
+  //   responseType: 'stream'
+  // })
+  //   .then(function (response) {
+  //     response.data.pipe(fs.createWriteStream('ada_lovelace.jpg'))
+  // });
+  
 }
 client.connect();
 async function insertPaymentinfo(request, response) {
