@@ -55,7 +55,10 @@ function getData() {
 
 async function insertPaymentinfo(request, response) {
   client.connect();
-  let payment = getData();
+  const data = await axios.get(`https://cse5234-order-microservice.herokuapp.com/OrderMicroservice/Order`);
+  console.log(data);
+  // let payment = getData();
+  let payment = data;
   console.log(payment);
   client.query(
     'INSERT INTO paymentinfo (id,creditcardnumber,expirationdate,cvvcode) VALUES ($1, $2, $3, $4);',
