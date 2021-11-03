@@ -36,11 +36,12 @@ function getData() {
     responseType: 'json'
     })
     .then(function (response) {
+      //handle success
       console.log(response);
-      result = response.data;
     })
-    .catch(function (error) {
-      console.log("Error");
+    .catch(function (response) {
+      //handle error
+      console.log(response);
     });
   return result;
   
