@@ -33,7 +33,13 @@ function getData() {
   axios({
     method: 'get',
     url: 'https://cse5234-order-microservice.herokuapp.com/OrderMicroservice/Order',
-    responseType: 'json'
+    responseType: 'json',
+    withCredentials: true,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      }
     })
     .then(function (response) {
       //handle success
