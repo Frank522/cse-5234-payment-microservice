@@ -63,7 +63,7 @@ async function insertPaymentinfo(request, response) {
   let payment = getData();
   console.log("Log from interPayment",payment);
   client.query(
-    'INSERT INTO paymentinfo (id,creditcardnumber,expirationdate,cvvcode) VALUES ($1, $2, $3, $4);',
+    'INSERT INTO payment (id,creditcardnumber,expirationdate,cvvcode) VALUES ($1, $2, $3, $4);',
     [
       payment.id,
       payment.creditCardNumber,
