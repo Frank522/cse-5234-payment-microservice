@@ -49,21 +49,21 @@ async function insertPaymentinfo(request, response) {
       //client.end();
     }
   );
-  client.query(
-    'INSERT INTO payment_entity (payment_id,business_entity,business_entity_aaccount) VALUES ($1,$2,$3);',
-    [
-      payment.id,
-      "Garden",
-      "077133956"
-    ],
-    (err, res) => {
-      if (err) throw err;
-      console.log(res);
-      //client.end();
-    }    
-  );
+  // client.query(
+  //   'INSERT INTO payment_entity (payment_id,business_entity,business_entity_aaccount) VALUES ($1,$2,$3);',
+  //   [
+  //     payment.id,
+  //     payment.entity,
+  //     payment.businessAccount
+  //   ],
+  //   (err, res) => {
+  //     if (err) throw err;
+  //     console.log(res);
+  //     //client.end();
+  //   }    
+  // );
   
-  response.send("#015049");
+  // response.send("#015049");
 }
 
 //client.connect();
