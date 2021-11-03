@@ -39,9 +39,7 @@ function getData() {
   //   result = response;
   // })
   
-  const data = await axios.get(`https://cse5234-order-microservice.herokuapp.com/OrderMicroservice/Order`);
-  console.log(data);
-  return data;
+  
   // axios({
   //   method: 'get',
   //   url: 'https://cse5234-order-microservice.herokuapp.com/OrderMicroservice/Order',
