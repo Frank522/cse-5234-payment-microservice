@@ -52,7 +52,7 @@ async function getData(request, res) {
       console.error(response.headers); 
       
     });
-    console.log(reequest);
+    console.log(request);
 }
 
 async function insertPaymentinfo(request, response) {
