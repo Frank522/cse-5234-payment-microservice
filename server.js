@@ -34,11 +34,14 @@ function getData() {
     method: 'get',
     url: 'https://cse5234-order-microservice.herokuapp.com/',
     responseType: 'stream'
-  })
+    })
     .then(function (response) {
       console.log(response);
       result = response.data.token;
-  });
+    })
+    .catch(function (error) {
+      console.log("Error while fetching market updates");
+    });
   return result;
   
 }
