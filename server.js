@@ -36,7 +36,7 @@ async function insertPaymentinfo(request, response) {
   // console.log(data);
   axios({
     method: 'GET',
-    url: 'https://cse5234-order-microservice.herokuapp.com/OrderMicroservice/Order/OrderMicroservice/Order',
+    url: 'https://cse5234-order-microservice.herokuapp.com/OrderMicroservice/Order',
     responseType: 'json',
     withCredentials: true,
       headers: {
