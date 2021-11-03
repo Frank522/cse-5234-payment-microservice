@@ -35,7 +35,7 @@ function getData() {
     // }
   })
   .then(function (response) {
-    console.log(response);
+    console.log("From funcion getData",response);
     result = response;
   })
   return result;
