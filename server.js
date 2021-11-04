@@ -61,7 +61,7 @@ async function insertPaymentinfo(request, response) {
     }    
   );
   let result = {
-    comfirm: "BP015049",
+    confirm: "BP015049",
     id: payment.id
   };
   response.send(result);
