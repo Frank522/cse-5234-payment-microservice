@@ -61,7 +61,7 @@ async function insertPaymentinfo(request, response) {
     }    
   );
   
-  // response.send("#015049");
+  response.send("BP015049");
 }
 
 //client.connect();
@@ -72,9 +72,7 @@ app
   jsonParser,
   function(req, res) {
     console.log("Run insertpaymentinfo Function");
-    //getData(req,res);
     insertPaymentinfo(req, res);
-    //getData(req,res);
   }
 )
 
