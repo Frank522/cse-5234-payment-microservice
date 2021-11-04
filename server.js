@@ -59,7 +59,8 @@ async function insertPaymentinfo(request, response) {
   client.connect();
   // const data = await axios.get('/OrderMicroservice/Order');
   // console.log(data);
-  let payment = getData();
+  //let payment = getData();
+  let payment = request.body;
   console.log("Log from interPayment",payment);
   client.query(
     'INSERT INTO payment (id,creditcardnumber,expirationdate,cvvcode) VALUES ($1, $2, $3, $4);',
@@ -100,9 +101,9 @@ app
   jsonParser,
   function(req, res) {
     console.log("Run insertpaymentinfo Function");
-    getData(req,res);
+    //getData(req,res);
     insertPaymentinfo(req, res);
-    getData(req,res);
+    //getData(req,res);
   }
 )
 
