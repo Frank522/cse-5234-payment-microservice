@@ -60,8 +60,12 @@ async function insertPaymentinfo(request, response) {
       //client.end();
     }    
   );
-  
-  response.send("BP015049");
+  let result = {
+    comfirm: "BP015049",
+    id: payment.id
+  };
+  response.send(result);
+
 }
 
 //client.connect();
