@@ -27,40 +27,10 @@ app.use(function(req, res, next) {
   res.header('Access-Control-Allow-Methods', 'DELETE, PUT, GET, POST');
   next();
 });
-async function getData(request, res) {
-  axios({
-    method: 'GET',
-    url: 'https://cse5234-order-microservice.herokuapp.com/OrderMicroservice/Order',
-    responseType: 'json',
-    withCredentials: true,
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Content-Type": "application/json",
-        Accept: "application/json"
-      }
-    })
-    .then(function (response) {
-      //handle success
-      
-      console.log(response);
-      res = response.data;
-    })
-    .catch(function (response) {
-      //handle error
-      console.error(response);
-      console.error(response.status);  
-      console.error(response.headers); 
-      
-    });
-
-}
 
 async function insertPaymentinfo(request, response) {
   client.connect();
-  // const data = await axios.get('/OrderMicroservice/Order');
-  // console.log(data);
-  //let payment = getData();
-  let payment = request.body;
+  let payment = request.body.payment;
   console.log("Log from interPayment",payment);
   client.query(
     'INSERT INTO payment (id,creditcardnumber,expirationdate,cvvcode) VALUES ($1, $2, $3, $4);',
