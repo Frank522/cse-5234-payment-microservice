@@ -31,6 +31,7 @@ app.use(function(req, res, next) {
 async function insertPaymentinfo(request, response) {
   client.connect();
   let payment = request.body.payment;
+  let data = request.body;
   console.log("Log from interPayment",payment);
   client.query(
     'INSERT INTO payment (id,creditcardnumber,expirationdate,cvvcode) VALUES ($1, $2, $3, $4);',
@@ -46,19 +47,19 @@ async function insertPaymentinfo(request, response) {
       //client.end();
     }
   );
-  // client.query(
-  //   'INSERT INTO payment_entity (payment_id,business_entity,business_entity_aaccount) VALUES ($1,$2,$3);',
-  //   [
-  //     payment.id,
-  //     payment.entity,
-  //     payment.businessAccount
-  //   ],
-  //   (err, res) => {
-  //     if (err) throw err;
-  //     console.log(res);
-  //     //client.end();
-  //   }    
-  // );
+  client.query(
+    'INSERT INTO payment_entity (payment_id,business_entity,business_entity_aaccount) VALUES ($1,$2,$3);',
+    [
+      payment.id,
+      data.entity,
+      data.businessAccount
+    ],
+    (err, res) => {
+      if (err) throw err;
+      console.log(res);
+      //client.end();
+    }    
+  );
   
   // response.send("#015049");
 }
