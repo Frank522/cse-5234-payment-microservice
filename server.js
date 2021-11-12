@@ -30,6 +30,7 @@ app.use(function(req, res, next) {
 
 async function insertPaymentinfo(request, response) {
   client.connect();
+  console.log("Request body: " + request)
   let payment = request.body.payment;
   let data = request.body;
   console.log("Log from interPayment",payment);
