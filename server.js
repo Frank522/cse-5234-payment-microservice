@@ -18,9 +18,10 @@ app.use(
   })
 );
 async function insertPayment(request, response) {
+  console.log("Request Body: " + request)
   let payment = request.body.payment;
   client.query(
-    'INSERT INTO paymentinfo (id,creditcardnumber,expirationdate,cvvcode) VALUES ($1, $2, $3, $4);',
+    "INSERT INTO paymentinfo (id,creditcardnumber,expirationdate,cvvcode) VALUES ($1, $2, $3, $4);",
     [
       payment.id,
       payment.creditCardNumber,
@@ -34,33 +35,23 @@ async function insertPayment(request, response) {
     }
   );
   client.query(
-    'INSERT INTO payment_entity (payment_id,business_entity,business_entity_aaccount) VALUES ($1,$2,$3);',
-    [
-      payment.id,
-      "Garden",
-      "077133956"
-    ],
+    "INSERT INTO payment_entity (payment_id,business_entity,business_entity_aaccount) VALUES ($1,$2,$3);",
+    [payment.id, "Garden", "077133956"],
     (err, res) => {
       if (err) throw err;
       console.log(res);
       //client.end();
-    }    
+    }
   );
-  
+
   response.send("#015049");
 }
 
 //client.connect();
-app
-.route("/PaymentMicroservice/Payment")
-.post(
-  jsonParser,
-  function(req, res) {
-    console.log(req.body.product);
-    insertPayment(req, res);
-  }
-)
-
+app.route("/PaymentMicroservice/Payment").post(jsonParser, function (req, res) {
+  console.log(req.body.product);
+  insertPayment(req, res);
+});
 
 var server = app.listen(port, function () {
   var host = server.address().address;
